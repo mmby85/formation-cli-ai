@@ -223,11 +223,25 @@ tr:hover td{background:rgba(255,255,255,.02)}
 /* ========== BEYOND CODE CARDS ========== */
 .case-card{
   background:var(--surface);border:1px solid var(--border);
-  border-radius:12px;overflow:hidden;transition:all .3s;
+  border-radius:12px;overflow:hidden;transition:all .4s cubic-bezier(0.4, 0, 0.2, 1);
+  display:flex;flex-direction:column;position:relative;
 }
-.case-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
-.case-img{height:120px;object-fit:cover;width:100%;filter:grayscale(1) brightness(.4) contrast(1.2);transition:all .5s}
-.case-card:hover .case-img{filter:grayscale(0) brightness(.8) contrast(1.1)}
+.case-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.4);border-color:var(--muted)}
+.case-img-container{height:160px;overflow:hidden;position:relative}
+.case-img{
+  height:100%;width:100%;object-fit:cover;
+  filter:grayscale(1) brightness(.5) contrast(1.1);
+  transition:all .6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.case-card:hover .case-img{filter:grayscale(0) brightness(.9) contrast(1);transform:scale(1.05)}
+.case-overlay{
+  position:absolute;inset:0;pointer-events:none;
+  transition:opacity .4s;opacity:0.2;
+}
+.case-card:hover .case-overlay{opacity:0.1}
+.card-emerald .case-overlay{background:var(--emerald)}
+.card-blue .case-overlay{background:var(--blue)}
+.card-purple .case-overlay{background:var(--purple)}
 
 /* ========== CHEAT SHEET ========== */
 .cheat-cmd{
@@ -665,166 +679,152 @@ tr:hover td{background:rgba(255,255,255,.02)}
 </section>
 
     <!-- Beyond Code: Non-IT Use Cases -->
-    <section id="non-it-cases" class="max-w-7xl mx-auto overflow-y-auto py-20">
-        <div class="text-center mb-16">
-            <h2 class="text-5xl font-black text-white text-glow-emerald uppercase italic">Beyond <span class="text-emerald-500">Code</span></h2>
-            <p class="text-slate-400 mt-4 max-w-2xl mx-auto font-mono text-sm">"L'IA en CLI n'est pas un outil de développeur. C'est un moteur d'automatisation universel pour tous les métiers de l'esprit."</p>
+<!-- ======================================================== -->
+<!-- BEYOND CODE -->
+<!-- ======================================================== -->
+<section id="non-it-cases" style="min-height:auto;padding-top:80px;padding-bottom:80px">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="section-label" style="background:rgba(16,185,129,.1);color:var(--emerald);border:1px solid rgba(16,185,129,.2)">Cas d'usage</div>
+      <h2 class="glow-emerald" style="color:#fff;text-transform:uppercase;font-style:italic">Beyond <span style="color:var(--emerald)">Code</span></h2>
+      <p style="color:var(--muted);font-size:.95rem;max-width:560px;margin:16px auto 0;font-family:var(--font-mono)">
+        "L'IA CLI n'est pas un outil de développeur. C'est un moteur d'automatisation universel pour tous les métiers de l'esprit."
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <!-- Case 1 -->
+      <div class="case-card card-emerald">
+        <div class="case-img-container">
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=80" class="case-img">
+          <div class="case-overlay"></div>
         </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Case 1 -->
-            <div class="glass-card card-emerald group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-emerald-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-emerald-400 text-sm mb-2 uppercase font-bold tracking-widest">01. Content Factory</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Génération massive de fiches produits SEO (CSV vers 500 fichiers Markdown)."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-emerald-500/80 border border-emerald-500/20">
-                        aider -m "Génère 500 fiches SEO à partir du CSV produits"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case 2 -->
-            <div class="glass-card card-blue group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-blue-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-blue-400 text-sm mb-2 uppercase font-bold tracking-widest">02. Édition &amp; Manuscrit</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Révision narrative et correction d'incohérences sur 20 chapitres d'un livre."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-blue-500/80 border border-blue-500/20">
-                        gemini chat --search "Vérifie la cohérence du personnage principal"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case 3 -->
-            <div class="glass-card card-purple group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-purple-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-purple-400 text-sm mb-2 uppercase font-bold tracking-widest">03. Audit Juridique</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Synthèse comparative de 50 contrats (pénalités, dates de fin, clauses)."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-purple-500/80 border border-purple-500/20">
-                        cat contrats/*.txt | gemini ask "Liste les pénalités de retard"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case 4 -->
-            <div class="glass-card card-blue group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-blue-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-blue-400 text-sm mb-2 uppercase font-bold tracking-widest">04. Ingénierie Pédagogique</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Transformation d'un PDF de 100p en modules de cours, QCM et flashcards."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-blue-500/80 border border-blue-500/20">
-                        opencode task "Génère un QCM à partir du module_1.md"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case 5 -->
-            <div class="glass-card card-emerald group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-emerald-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-emerald-400 text-sm mb-2 uppercase font-bold tracking-widest">05. Traduction &amp; Localisation</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Duplication et traduction d'arborescences de dossiers entières."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-emerald-500/80 border border-emerald-500/20">
-                        aider -m "Traduis tout le dossier /FR vers /ES et /DE"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case 6 -->
-            <div class="glass-card card-purple group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://www.leguiderh.fr/sites/default/files/styles/page_article_vignette/public/2023-09/trier-cv-candidats.png?itok=SnYNGylx" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-purple-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-purple-400 text-sm mb-2 uppercase font-bold tracking-widest">06. Pré-sélection RH</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Analyse de 200 CVs textuels et scoring de pertinence vers un CSV."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-purple-500/80 border border-purple-500/20">
-                        cat cvs/*.txt | gemini ask "Score les candidats (JSON)"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case 7 -->
-            <div class="glass-card card-blue group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-blue-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-blue-400 text-sm mb-2 uppercase font-bold tracking-widest">07. Synthèse Financière</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Analyse narrative de rapports comptables et suggestion d'économies."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-blue-500/80 border border-blue-500/20">
-                        cat compta.csv | gemini ask "Analyse les variations"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case 8 -->
-            <div class="glass-card card-emerald group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-emerald-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-emerald-400 text-sm mb-2 uppercase font-bold tracking-widest">08. Brain-to-Action</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Transformation de notes de réunion en structure Kanban et dossiers de tâches."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-emerald-500/80 border border-emerald-500/20">
-                        opencode task "Crée les tâches à partir de notes.txt"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case 9 -->
-            <div class="glass-card card-purple group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-purple-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-purple-400 text-sm mb-2 uppercase font-bold tracking-widest">09. Scénarisation Vidéo</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Découpage d'articles de blog en scripts YouTube (B-Roll vs Script)."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-purple-500/80 border border-purple-500/20">
-                        aider -m "Scriptise les 10 articles du dossier /blog"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case 10 -->
-            <div class="glass-card card-blue group overflow-hidden flex flex-col">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700">
-                    <div class="absolute inset-0 bg-blue-500/10 mix-blend-color"></div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-blue-400 text-sm mb-2 uppercase font-bold tracking-widest">10. Archivage Intelligent</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed italic mb-4">"Classement sémantique et renommage intelligent d'un dossier 'fourre-tout'."</p>
-                    <div class="bg-black/50 p-3 rounded mono text-[10px] text-blue-500/80 border border-blue-500/20">
-                        opencode task "Trie le dossier /InBox par thème"
-                    </div>
-                </div>
-            </div>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--emerald);margin-bottom:6px">01 — Content Factory</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Génération massive de fiches produits SEO (CSV → 500 fichiers Markdown).</p>
+          <div class="cheat-cmd"><span class="comment"># Aider</span><br>aider --yes -m "Génère 500 fiches SEO depuis produits.csv"</div>
         </div>
-    </section>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-card card-blue">
+        <div class="case-img-container">
+          <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=600&q=80" class="case-img">
+          <div class="case-overlay"></div>
         </div>
-    </section>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--blue);margin-bottom:6px">02 — Édition & Manuscrit</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Révision narrative et correction d'incohérences sur 20 chapitres.</p>
+          <div class="cheat-cmd"><span class="comment"># Gemini CLI</span><br>cat chapters/*.md | gemini "Vérifie la cohérence"</div>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="case-card card-purple">
+        <div class="case-img-container">
+          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" class="case-img">
+          <div class="case-overlay"></div>
+        </div>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--purple);margin-bottom:6px">03 — Audit Juridique</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Synthèse comparative de 50 contrats (pénalités, dates, clauses).</p>
+          <div class="cheat-cmd"><span class="comment"># Gemini CLI</span><br>cat contrats/*.txt | gemini "Liste les pénalités"</div>
+        </div>
+      </div>
+
+      <!-- Case 4 -->
+      <div class="case-card card-blue">
+        <div class="case-img-container">
+          <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&q=80" class="case-img">
+          <div class="case-overlay"></div>
+        </div>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--blue);margin-bottom:6px">04 — Ingénierie Pédagogique</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Transformer un PDF de 100p en modules, QCM et flashcards.</p>
+          <div class="cheat-cmd"><span class="comment"># OpenCode</span><br>opencode --print "Génère un QCM depuis module_1.md"</div>
+        </div>
+      </div>
+
+      <!-- Case 5 -->
+      <div class="case-card card-emerald">
+        <div class="case-img-container">
+          <img src="https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=600&q=80" class="case-img">
+          <div class="case-overlay"></div>
+        </div>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--emerald);margin-bottom:6px">05 — Traduction & Localisation</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Duplication et traduction d'arborescences de dossiers entières.</p>
+          <div class="cheat-cmd"><span class="comment"># Aider</span><br>aider --yes -m "Traduis /FR vers /ES et /DE"</div>
+        </div>
+      </div>
+
+      <!-- Case 6 -->
+      <div class="case-card card-purple">
+        <div class="case-img-container">
+          <img src="https://www.leguiderh.fr/sites/default/files/styles/page_article_vignette/public/2023-09/trier-cv-candidats.png?itok=SnYNGylx" class="case-img">
+          <div class="case-overlay"></div>
+        </div>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--purple);margin-bottom:6px">06 — Pré-sélection RH</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Analyse de 200 CVs textuels et scoring de pertinence vers un CSV.</p>
+          <div class="cheat-cmd"><span class="comment"># Gemini CLI</span><br>cat cvs/*.txt | gemini "Score les candidats"</div>
+        </div>
+      </div>
+
+      <!-- Case 7 -->
+      <div class="case-card card-blue">
+        <div class="case-img-container">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" class="case-img">
+          <div class="case-overlay"></div>
+        </div>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--blue);margin-bottom:6px">07 — Synthèse Financière</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Analyse narrative de rapports comptables et suggestion d'économies.</p>
+          <div class="cheat-cmd"><span class="comment"># Gemini CLI</span><br>cat compta.csv | gemini "Analyse les variations"</div>
+        </div>
+      </div>
+
+      <!-- Case 8 -->
+      <div class="case-card card-emerald">
+        <div class="case-img-container">
+          <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=600&q=80" class="case-img">
+          <div class="case-overlay"></div>
+        </div>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--emerald);margin-bottom:6px">08 — Brain-to-Action</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Notes de réunion → structure Kanban et dossiers de tâches.</p>
+          <div class="cheat-cmd"><span class="comment"># OpenCode</span><br>opencode task "Crée les tâches depuis notes.txt"</div>
+        </div>
+      </div>
+
+      <!-- Case 9 -->
+      <div class="case-card card-purple">
+        <div class="case-img-container">
+          <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=600&q=80" class="case-img">
+          <div class="case-overlay"></div>
+        </div>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--purple);margin-bottom:6px">09 — Scénarisation Vidéo</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Articles de blog → scripts YouTube (B-Roll vs Script).</p>
+          <div class="cheat-cmd"><span class="comment"># Aider</span><br>aider -m "Scriptise les 10 articles du dossier /blog"</div>
+        </div>
+      </div>
+
+      <!-- Case 10 -->
+      <div class="case-card card-blue">
+        <div class="case-img-container">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" class="case-img">
+          <div class="case-overlay"></div>
+        </div>
+        <div style="padding:18px">
+          <div class="label" style="color:var(--blue);margin-bottom:6px">10 — Archivage Intelligent</div>
+          <p style="font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:12px">Classement sémantique et renommage d'un dossier "fourre-tout".</p>
+          <div class="cheat-cmd"><span class="comment"># OpenCode</span><br>opencode task "Trie le dossier /InBox par thème"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- ======================================================== -->
