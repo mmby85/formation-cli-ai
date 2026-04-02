@@ -1,0 +1,35 @@
+/* -------------------------------------------------------------------------- */
+/* LAYOUT: Scroll-Snap & Barre de Navigation                                 */
+/* -------------------------------------------------------------------------- */
+html { 
+    scroll-behavior: smooth; 
+    scroll-snap-type: y mandatory; 
+}
+
+section { 
+    scroll-snap-align: start; 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    padding: 80px 20px;
+}
+
+#progress-bar {
+    position: fixed;
+    top: 0; left: 0; height: 4px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-emerald), var(--neon-purple));
+    z-index: 100; transition: width 0.2s;
+}
+
+.nav-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.3s;
+}
+.nav-dot.active { 
+    background: var(--neon-blue); 
+    box-shadow: 0 0 10px var(--neon-blue); 
+    transform: scale(1.3); 
+}

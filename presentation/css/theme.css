@@ -1,0 +1,38 @@
+/* -------------------------------------------------------------------------- */
+/* THEME & VARIABLES: Neon High-Fidelity System                              */
+/* -------------------------------------------------------------------------- */
+:root {
+    --neon-blue: #3b82f6;
+    --neon-emerald: #10b981;
+    --neon-purple: #a855f7;
+    --neon-red: #ef4444;
+    --terminal-black: #0a0a0c;
+    --bg-dark: #020617;
+    
+    /* Glow Strengths */
+    --glow-soft: 0 0 15px rgba(0, 0, 0, 0.5);
+    --glow-blue: 0 0 20px rgba(59, 130, 246, 0.4);
+    --glow-emerald: 0 0 20px rgba(16, 185, 129, 0.4);
+    --glow-purple: 0 0 20px rgba(168, 85, 247, 0.4);
+    --glow-red: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Typographic Scale */
+h1 { font-size: clamp(3rem, 10vw, 8rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.9; }
+h2 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.02em; }
+h3 { font-size: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+
+.mono { font-family: 'Fira Code', monospace; }
+
+/* Utility Glows */
+.text-glow-blue { text-shadow: 0 0 10px var(--neon-blue); }
+.text-glow-emerald { text-shadow: 0 0 10px var(--neon-emerald); }
+.text-glow-purple { text-shadow: 0 0 10px var(--neon-purple); }
+.text-glow-red { text-shadow: 0 0 10px var(--neon-red); }

@@ -1,0 +1,46 @@
+/* -------------------------------------------------------------------------- */
+/* ANIMATIONS: Reveal Effects & Custom Cursor                                */
+/* -------------------------------------------------------------------------- */
+
+/* Section Reveal Effect */
+section {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+section.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Custom Cursor */
+#custom-cursor {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background: var(--neon-emerald);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    display: none;
+}
+
+#custom-cursor.active {
+    display: block;
+    box-shadow: 0 0 15px var(--neon-emerald);
+}
+
+/* Particles & Flux */
+.pipe-flow { 
+    height: 4px; background: rgba(59, 130, 246, 0.1); 
+    overflow: hidden; position: relative; border-radius: 2px; 
+}
+
+.pipe-particle {
+    position: absolute; width: 60px; height: 100%;
+    background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+    animation: move 2s infinite linear;
+}
+
+@keyframes move { 0% { left: -60px; } 100% { left: 100%; } }

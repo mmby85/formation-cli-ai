@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets Pratiques - AI CLI Tools Masterclass</title>
+    
+    <!-- CSS Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="selection:bg-blue-500/30">
+
+    <div id="progress-bar"></div>
+
+    <!-- Side Navigation (GLOBAL) -->
+    <div class="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
+        <a href="index.html#intro" class="nav-dot" title="Introduction"></a>
+        <a href="index.html#gemini-dive" class="nav-dot" title="Gemini CLI"></a>
+        <a href="index.html#aider-dive" class="nav-dot" title="Aider"></a>
+        <a href="index.html#opencode-dive" class="nav-dot" title="OpenCode"></a>
+        <a href="index.html#vibecoding" class="nav-dot" title="Vibe Coding"></a>
+        <a href="index.html#non-it-cases" class="nav-dot" title="Beyond Code"></a>
+        <a href="index.html#comparison" class="nav-dot" title="Comparaison"></a>
+        <a href="index.html#methodology" class="nav-dot" title="PACD Lab"></a>
+        <a href="index.html#pitfalls" class="nav-dot" title="Pitfalls"></a>
+        <a href="index.html#cheatsheet" class="nav-dot" title="Cheat Sheets"></a>
+        <a href="pratique.html" class="nav-dot" title="Projets Pratiques"></a>
+    </div>
+
+    <section id="pratique-projects" class="reveal-section max-w-6xl mx-auto py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-white text-glow-blue uppercase">Projets Pratiques: <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-500">SOS Village</span></h2>
+            <p class="text-slate-400 text-sm mt-4 max-w-2xl mx-auto">
+                Mettez en œuvre la puissance des outils CLI pour soutenir les enfants et l'organisation du club SOS Village.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Project 1: Storytelling Immersion -->
+            <div class="glass-card p-8 border-l-4 border-emerald-500/50 bg-emerald-500/5 md:col-span-2">
+                <h3 class="mono text-emerald-400 text-sm mb-4 uppercase tracking-widest">1. Générateur de Contes Interactifs (Storytelling Immersion)</h3>
+                <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                    Transformer les récits, dessins ou rêves des enfants en expériences numériques immersives. Le projet utilise le "Scroll-snap" pour créer une lecture rythmée, enrichie par des visuels générés et une ambiance sonore.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h4 class="font-bold text-emerald-500 text-xs mb-3 uppercase">Détails de l'implémentation :</h4>
+                        <ul class="text-xs text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Analyse de l'arc narratif pour assurer une progression émotionnelle.</li>
+                            <li>Architecture Front-end ultra-légère (Vanilla JS/CSS) pour une accessibilité maximale.</li>
+                            <li>Intégration de micro-animations réagissant au défilement.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-emerald-500 text-xs mb-3 uppercase">Workflow CLI Stratégique :</h4>
+                        <div class="space-y-3">
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-blue-500"># 🔵 Gemini : Analyse sémantique et extension de l'univers narratif</span><br/>
+                                gemini ask --file story_input.txt "À partir de ce récit d'enfant, identifie 5 émotions clés et développe un univers visuel néon-rétro cohérent pour chaque chapitre."
+                            </div>
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-emerald-500"># 🟢 Aider : Développement Agile Multi-fichiers</span><br/>
+                                aider index.html style.css script.js --msg "Implémente une navigation scroll-snap verticale. Ajoute des transitions CSS pour chaque section basées sur les émotions identifiées par Gemini."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-4 border-t border-slate-800 pt-4">**Impact Social:** Offrir aux enfants une fenêtre sur le numérique où leur imagination devient une réalité tangible et codée, renforçant l'estime de soi par la création.</p>
+            </div>
+
+            <!-- Project 2: SOS Connect - Dashboard des Besoins -->
+            <div class="glass-card p-8 border-l-4 border-blue-500/50 bg-blue-500/5 md:col-span-2">
+                <h3 class="mono text-blue-400 text-sm mb-4 uppercase tracking-widest">2. "SOS Connect" : Le Dashboard des Besoins en Temps Réel</h3>
+                <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                    Une application de coordination logistique pour centraliser les dons (fournitures, vêtements) et les besoins urgents. Le projet se focalise sur la fiabilité des données et la simplicité d'usage pour les bénévoles.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h4 class="font-bold text-blue-500 text-xs mb-3 uppercase">Détails de l'implémentation :</h4>
+                        <ul class="text-xs text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Système de "Local Priority" pour fonctionner sans connexion constante.</li>
+                            <li>Formulaires dynamiques avec validation temps réel.</li>
+                            <li>Reporting automatisé des stocks restants.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-blue-500 text-xs mb-3 uppercase">Workflow CLI Stratégique :</h4>
+                        <div class="space-y-3">
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-emerald-500"># 🟢 Aider : Structure & Git Flow</span><br/>
+                                aider app.js models/donations.js -m "Crée le schéma de données pour les dons et lie-le au dashboard. Effectue un commit 'feat: init donation model' après succès."
+                            </div>
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-purple-500"># 🟣 OpenCode : Précision du Code & LSP</span><br/>
+                                opencode refactor forms.js --lsp -m "Sécurise les entrées utilisateurs contre les injections XSS et assure le typage strict des données de dons."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-4 border-t border-slate-800 pt-4">**Impact Social:** Optimiser l'efficacité logistique des ambassadeurs pour répondre plus vite aux besoins fondamentaux des enfants.</p>
+            </div>
+
+            <!-- Project 3: Tuteur-IA Hors-Ligne -->
+            <div class="glass-card p-8 border-l-4 border-purple-500/50 bg-purple-500/5 md:col-span-2">
+                <h3 class="mono text-purple-400 text-sm mb-4 uppercase tracking-widest">3. Le "Tuteur-IA" Hors-Ligne (Éducation Accessible)</h3>
+                <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                    Développement d'un assistant d'étude léger s'exécutant localement. Ce projet vise à offrir un soutien scolaire (Maths, Français) sans dépendance au Cloud, idéal pour les zones à connectivité limitée ou le matériel recyclé.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h4 class="font-bold text-purple-500 text-xs mb-3 uppercase">Détails de l'implémentation :</h4>
+                        <ul class="text-xs text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Parsing de fichiers Markdown/JSON pour la base de connaissances scolaire.</li>
+                            <li>Moteur de questions-réponses optimisé pour la RAM (Low-resource hardware).</li>
+                            <li>Mode "Audit" pour que les tuteurs humains puissent réviser les réponses générées.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-purple-500 text-xs mb-3 uppercase">Workflow CLI Stratégique :</h4>
+                        <div class="space-y-3">
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-blue-500"># 🔵 Gemini : Extraction de Connaissances Massive</span><br/>
+                                gemini ask --file curriculum_2026.pdf "Génère un dataset JSON structuré contenant 100 exercices de logique pour le niveau CM2 avec explications détaillées."
+                            </div>
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-purple-500"># 🟣 OpenCode : Refactoring & Eco-conception</span><br/>
+                                opencode refactor core_engine.py --lsp -m "Optimise les boucles de recherche et la gestion mémoire pour assurer une compatibilité avec des processeurs ancienne génération."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-4 border-t border-slate-800 pt-4">**Impact Social:** Réduire la fracture numérique en offrant un soutien scolaire personnalisé, gratuit et indépendant des infrastructures réseau.</p>
+            </div>
+
+            <!-- Project 4: Le Mur de la Bienveillance -->
+            <div class="glass-card p-8 border-l-4 border-blue-600/50 bg-blue-600/5 md:col-span-2">
+                <h3 class="mono text-blue-300 text-sm mb-4 uppercase tracking-widest">4. "Le Mur de la Bienveillance" (Visualisation de Données)</h3>
+                <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                    Une vitrine interactive visualisant l'impact concret des actions du club SOS Village. Ce dashboard transforme des fichiers CSV austères en une constellation de données vivantes et inspirantes.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h4 class="font-bold text-blue-300 text-xs mb-3 uppercase">Détails de l'implémentation :</h4>
+                        <ul class="text-xs text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Utilisation de Canvas API pour des performances fluides.</li>
+                            <li>Mapping de données : Heures de bénévolat &rarr; Particules lumineuses.</li>
+                            <li>Génération de slogans d'impact personnalisés en fonction des chiffres.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-blue-300 text-xs mb-3 uppercase">Workflow CLI Stratégique :</h4>
+                        <div class="space-y-3">
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-blue-500"># 🔵 Gemini : Synthèse Narrative de Données</span><br/>
+                                gemini ask "À partir de stats.csv, synthétise l'impact social en 3 phrases chocs qui seront affichées sur le mur."
+                            </div>
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-emerald-500"># 🟢 Aider : Design UI & Visualisation Dynamique</span><br/>
+                                aider mural.js css/visuals.css -m "Développe une classe ParticleSystem qui utilise les données extraites par Gemini pour créer une pluie de pixels néon sur le canvas."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-4 border-t border-slate-800 pt-4">**Impact Social:** Valoriser le travail des ambassadeurs et encourager de nouveaux donateurs par une transparence innovante et esthétique.</p>
+            </div>
+
+            <!-- Project 5: Plateforme de "Portfolios de Demain" -->
+            <div class="glass-card p-8 border-l-4 border-emerald-600/50 bg-emerald-600/5 md:col-span-2">
+                <h3 class="mono text-emerald-300 text-sm mb-4 uppercase tracking-widest">5. Plateforme de "Portfolios de Demain" pour les Jeunes</h3>
+                <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                    Accompagnement des adolescents vers l'emploi via la création de leur premier portfolio web "Agentic-first". Au-delà du CV, c'est une initiation aux workflows de 2026.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h4 class="font-bold text-emerald-300 text-xs mb-3 uppercase">Détails de l'implémentation :</h4>
+                        <ul class="text-xs text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Générateur statique de site à partir de profils Markdown.</li>
+                            <li>Intégration d'une section "Skill-Proof" (preuves de compétences via GitHub).</li>
+                            <li>Design Responsive pensé pour le partage via QR Code sur mobile.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-emerald-300 text-xs mb-3 uppercase">Workflow CLI Stratégique :</h4>
+                        <div class="space-y-3">
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-emerald-500"># 🟢 Aider : Live Pairing with the Youth</span><br/>
+                                aider portfolio.html theme.css -m "Réalise un CV web minimaliste avec une barre de progression de compétences animée. Utilise les infos de 'mon_profil.md'."
+                            </div>
+                            <div class="code-block p-3 rounded mono text-[10px] bg-slate-900/50">
+                                <span class="text-purple-500"># 🟣 OpenCode : Task & Methodology (PACD)</span><br/>
+                                opencode task "Analyse le fichier CV.md et propose une section 'Projets' structurée selon la méthode PACD (Plan, Act, Check, Do) pour démontrer une rigueur professionnelle."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-4 border-t border-slate-800 pt-4">**Impact Social:** Redonner confiance aux jeunes en leur montrant qu'ils peuvent maîtriser les outils les plus avancés de 2026 pour bâtir leur propre avenir.</p>
+            </div>
+        </div>
+
+        <div class="mt-20 text-center">
+            <a href="index.html" class="bg-gradient-to-r from-blue-600 to-purple-600 px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all shadow-[0_0_40px_rgba(59,130,246,0.2)]">
+                &larr; Retour à la Masterclass
+            </a>
+        </div>
+    </section>
+
+    <!-- JS Logic -->
+    <script src="js/constants.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/pacd-lab.js"></script>
+</body>
+</html>

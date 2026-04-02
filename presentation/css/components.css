@@ -1,0 +1,53 @@
+/* -------------------------------------------------------------------------- */
+/* COMPONENTS: High-Fidelity Glassmorphism & UI                              */
+/* -------------------------------------------------------------------------- */
+.glass-card {
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: var(--glow-soft);
+}
+
+.glass-card:hover {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px) scale(1.01);
+}
+
+/* Card Glow Variants */
+.card-blue:hover { box-shadow: var(--glow-blue); border-color: var(--neon-blue); }
+.card-emerald:hover { box-shadow: var(--glow-emerald); border-color: var(--neon-emerald); }
+.card-purple:hover { box-shadow: var(--glow-purple); border-color: var(--neon-purple); }
+
+/* Code Blocks & Terminal */
+.code-block { 
+    background: #000; 
+    border: 1px solid #1e293b; 
+    position: relative; 
+    border-radius: 0.75rem;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.copy-btn {
+    position: absolute; top: 12px; right: 12px;
+    background: rgba(30, 41, 59, 0.8); color: #94a3b8;
+    padding: 6px 12px; border-radius: 6px; font-size: 10px;
+    opacity: 0; transition: all 0.3s;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.code-block:hover .copy-btn { opacity: 1; }
+.copy-btn:hover { background: var(--neon-emerald); color: white; border-color: transparent; }
+
+.command-line::before { content: "> "; color: var(--neon-emerald); font-weight: bold; }
+
+.pacd-step-btn {
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+}
+.pacd-step-btn.active { 
+    transform: translateX(10px); 
+    border-color: rgba(255,255,255,0.15);
+}
