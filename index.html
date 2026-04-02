@@ -136,7 +136,7 @@ h3{font-size:clamp(1rem,2vw,1.3rem);font-weight:700}
 .dot{width:10px;height:10px;border-radius:50%}
 .dot-r{background:#ef4444}.dot-y{background:#f59e0b}.dot-g{background:#22c55e}
 .terminal-title{font:600 11px var(--font-mono);color:var(--muted);margin-left:auto}
-.terminal-body{padding:22px 24px;font:13px/1.8 var(--font-mono);min-height:140px}
+.terminal-body{padding:22px 24px;font:13px/1.8 var(--font-mono);min-height:160px;overflow-x:auto;white-space:pre-wrap;word-break:break-all}
 .t-prompt{color:var(--emerald)}
 .t-cmd{color:#f0f0f0}
 .t-out{color:var(--muted2)}
@@ -263,14 +263,14 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .grad-purple-blue{background:linear-gradient(90deg,var(--purple),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ========== GRID LAYOUTS ========== */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:40px;align-items:center}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px}
 @media(max-width:900px){
-  .grid-2,.grid-3{grid-template-columns:1fr}
-  section{padding:60px 20px}
-  h1{font-size:3rem}
+  .grid-2,.grid-3{grid-template-columns:1fr;gap:32px}
+  section{padding:80px 24px}
+  h1{font-size:3.5rem}
   #sidenav{display:none}
-  .pitfall-num{font-size:40px}
+  .pitfall-num{font-size:48px}
 }
 
 /* ========== SECTION LABEL ========== */
@@ -327,9 +327,9 @@ tr:hover td{background:rgba(255,255,255,.02)}
   <a class="nav-dot" data-target="vibecoding" data-label="Vibe Coding" href="#vibecoding"></a>
   <a class="nav-dot emerald" data-target="non-it-cases" data-label="Beyond Code" href="#non-it-cases"></a>
   <a class="nav-dot purple" data-target="comparison" data-label="Comparaison" href="#comparison"></a>
-  <a class="nav-dot" data-target="methodology" data-label="PACD Lab" href="#methodology"></a>
-  <a class="nav-dot" data-target="pitfalls" data-label="Pitfalls" href="#pitfalls"></a>
-  <a class="nav-dot emerald" data-target="cheatsheet" data-label="Cheat Sheets" href="#cheatsheet"></a>
+  <a class="nav-dot emerald" data-target="methodology" data-label="PACD Lab" href="#methodology"></a>
+  <a class="nav-dot red" data-target="pitfalls" data-label="Pitfalls" href="#pitfalls"></a>
+  <a class="nav-dot" data-target="cheatsheet" data-label="Cheat Sheets" href="#cheatsheet"></a>
 </nav>
 
 <!-- ======================================================== -->
